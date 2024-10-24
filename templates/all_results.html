@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Quiz Results</title>
+</head>
+<body>
+    <h1>All Quiz Results</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Attempted</th>
+            <th>Percentage</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result['id'] }}</td>
+            <td>{{ result['name'] }}</td>
+            <td>{{ result['score'] }}</td>
+            <td>{{ result['attempted'] }}</td>
+            <td>{{ result['percentage'] }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Quiz</a>
+</body>
+</html>

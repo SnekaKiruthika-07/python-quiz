@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+    <h1>Quiz Results</h1>
+    <div class="container1">
+        <div class="box1">
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Total Questions:</strong> {{ total_questions }}</p>
+    <p><strong>Attempted:</strong> {{ attempted }}</p>
+    <p><strong>Score:</strong> {{ score }}</p>
+    <p><strong>Percentage:</strong> {{ percentage }}%</p>
+</div>
+    <hr>
+     <div class="box2">
+    <h2>Your Answers:</h2>
+    <ul>
+        {% for i in range(total_questions) %}
+            <li>
+                <strong>Question {{ i+1 }}:</strong> {{ quiz_data[i]['question'] }}<br>
+                <strong>Your Answer:</strong> {{ user_answers.get('q' + (i + 1) | string) }}<br>
+                <strong>Correct Answer:</strong> {{ quiz_data[i]['answer'] }}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
+    <button class ="playagain"><a href="/">Play Again</a></button>
+</body>
+</html>

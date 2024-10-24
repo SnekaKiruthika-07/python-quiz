@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div class="container">
+    <form method="POST" action="/">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <hr>
+
+        <!-- Loop through quiz_data to display each question and its options -->
+        {% for i in range(quiz_data|length) %}
+            <h3>{{ i+1 }}. {{ quiz_data[i]['question'] }}</h3>
+            {% for option in quiz_data[i]['options'] %}
+                <label>
+                    <input type="radio" name="q{{ i+1 }}" value="{{ option }}" required>
+                    {{ option }}
+                </label><br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+
+        <button type="submit" value="Submit Quiz" class="submit">Submit</button>
+    </form>
+    </div>
+</body>
+</html>
